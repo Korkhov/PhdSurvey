@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Результат";
+}
+
+<h3>
+    Ваш результат: @((ViewData["Type"] != null && !string.IsNullOrWhiteSpace(ViewData["Type"].ToString())) ? ViewData["Type"] : "")
+</h3><hr />
+
+<h4 style="text-align:justify">@Html.Raw(ViewData["Description"])</h4><br />
+
+<a asp-action="Index" asp-controller="User"><input type="button" class="btn btn-default" value="Назад" /></a>

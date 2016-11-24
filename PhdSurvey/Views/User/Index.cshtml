@@ -1,0 +1,219 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Аккаунт";
+}
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <h3>Женщины</h3><br />
+        <table class="col-md-12">
+            <tr>
+                @if (Model.Surveys.Any(m => m.Type == "FemaleMainSurvey"))
+                {
+                    <td valign="middle" class="col-md-6"><h4>Анкета</h4></td>
+                    <td valign="middle" class="col-md-3"><span class="label label-success">Пройдено</span></td>
+                }
+                else
+                {
+                    <td valign="middle" class="col-md-6"><a asp-action="FemaleMainSurvey" asp-controller="User"><h4>Анкета</h4></a></td>
+                    <td valign="middle" class="col-md-6"><span class="label label-danger">Не пройдено</span></td>
+                }
+            </tr>
+            <tr>
+                @if (Model.Surveys.Any(m => m.Type == "FemaleFamilyDrawing"))
+                {
+                    <td valign="middle" class="col-md-6"><h4>Рисунок семьи</h4></td>
+                    <td valign="middle" class="col-md-3"><span class="label label-success">Пройдено</span></td>
+                }
+                else
+                {
+                    <td valign="middle" class="col-md-6"><a asp-action="FamilyDrawing" asp-controller="User" asp-route-gender="Female"><h4>Рисунок семьи</h4></a></td>
+                    <td valign="middle" class="col-md-6"><span class="label label-danger">Не пройдено</span></td>
+                }
+            </tr>
+            <tr>
+                @if (Model.Surveys.Any(m => m.Type == "FemaleCondonSurvey"))
+                {
+                    <td valign="middle" class="col-md-6"><h4>Диагностики пренатальной привязанности</h4></td>
+                    <td valign="middle" class="col-md-6">
+                        <span class="label label-success">Пройдено</span>
+                        <a asp-action="Result" asp-controller="User" asp-route-type="CondonSurvey" asp-route-gender="Female">
+                            <span class="label label-info">Результат</span>
+                        </a>
+                    </td>
+                }
+                else
+                {
+                    <td valign="middle" class="col-md-6"><a asp-action="Survey" asp-controller="User" asp-route-type="CondonSurvey" asp-route-gender="Female"><h4>Диагностика пренатальной привязанности</h4></a></td>
+                    <td valign="middle" class="col-md-6"><span class="label label-danger">Не пройдено</span></td>
+                }
+            </tr>
+            <tr>
+                @if (Model.Surveys.Any(m => m.Type == "FemaleDinerSurvey"))
+                {
+                    <td valign="middle" class="col-md-6"><h4>@Globals.Surveys.Single(m => m.Type == "DinerSurvey").Name</h4></td>
+                    <td valign="middle" class="col-md-6">
+                        <span class="label label-success">Пройдено</span>
+                        <a asp-action="Result" asp-controller="User" asp-route-type="DinerSurvey" asp-route-gender="Female">
+                            <span class="label label-info">Результат</span>
+                        </a>
+                    </td>
+                }
+                else
+                {
+                    <td valign="middle" class="col-md-6"><a asp-action="Survey" asp-controller="User" asp-route-type="DinerSurvey" asp-route-gender="Female"><h4>@Globals.Surveys.Single(m => m.Type == "DinerSurvey").Name</h4></a></td>
+                    <td valign="middle" class="col-md-6"><span class="label label-danger">Не пройдено</span></td>
+                }
+            </tr>
+            <tr>
+                @if (Model.Surveys.Any(m => m.Type == "FemaleAlyoshinaSurvey"))
+                {
+                    <td valign="middle" class="col-md-6"><h4>@Globals.Surveys.Single(m => m.Type == "AlyoshinaSurvey").Name</h4></td>
+                    <td valign="middle" class="col-md-6">
+                        <span class="label label-success">Пройдено</span>
+                        <a asp-action="Result" asp-controller="User" asp-route-type="AlyoshinaSurvey" asp-route-gender="Female">
+                            <span class="label label-info">Результат</span>
+                        </a>
+                    </td>
+                }
+                else
+                {
+                    <td valign="middle" class="col-md-6"><a asp-action="Survey" asp-controller="User" asp-route-type="AlyoshinaSurvey" asp-route-gender="Female"><h4>@Globals.Surveys.Single(m => m.Type == "AlyoshinaSurvey").Name</h4></a></td>
+                    <td valign="middle" class="col-md-6"><span class="label label-danger">Не пройдено</span></td>
+                }
+            </tr>
+            <tr>
+                @if (Model.Surveys.Any(m => m.Type == "FemaleRiffSurvey"))
+                {
+                    <td valign="middle" class="col-md-6"><h4>@Globals.Surveys.Single(m => m.Type == "RiffSurvey").Name</h4></td>
+                    <td valign="middle" class="col-md-6">
+                        <span class="label label-success">Пройдено</span>
+                        <a asp-action="Result" asp-controller="User" asp-route-type="RiffSurvey" asp-route-gender="Female">
+                            <span class="label label-info">Результат</span>
+                        </a>
+                    </td>
+                }
+                else
+                {
+                    <td valign="middle" class="col-md-6"><a asp-action="Survey" asp-controller="User" asp-route-type="RiffSurvey" asp-route-gender="Female"><h4>@Globals.Surveys.Single(m => m.Type == "RiffSurvey").Name</h4></a></td>
+                    <td valign="middle" class="col-md-6"><span class="label label-danger">Не пройдено</span></td>
+                }
+            </tr>
+            <tr>
+                @if (Model.Surveys.Any(m => m.Type == "FemaleDobryakovaSurvey"))
+                {
+                    <td valign="middle" class="col-md-6"><h4>@Globals.Surveys.Single(m => m.Type == "DobryakovaSurvey").Name</h4></td>
+                    <td valign="middle" class="col-md-6">
+                        <span class="label label-success">Пройдено</span>
+                        <a asp-action="Result" asp-controller="User" asp-route-type="DobryakovaSurvey" asp-route-gender="Female">
+                            <span class="label label-info">Результат</span>
+                        </a>
+                    </td>
+                }
+                else
+                {
+                    <td valign="middle" class="col-md-6"><a asp-action="Survey" asp-controller="User" asp-route-type="DobryakovaSurvey" asp-route-gender="Female"><h4>@Globals.Surveys.Single(m => m.Type == "DobryakovaSurvey").Name</h4></a></td>
+                    <td valign="middle" class="col-md-6"><span class="label label-danger">Не пройдено</span></td>
+                }
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <h3>Мужчины</h3><br />
+        <table class="col-md-12">
+            <tr>
+                @if (Model.Surveys.Any(m => m.Type == "MaleMainSurvey"))
+                {
+                    <td valign="middle" class="col-md-6"><h4>Анкета</h4></td>
+                    <td valign="middle" class="col-md-6"><span class="label label-success">Пройдено</span></td>
+                }
+                else
+                {
+                    <td valign="middle" class="col-md-6"><a asp-action="MaleMainSurvey" asp-controller="User"><h4>Анкета</h4></a></td>
+                    <td valign="middle" class="col-md-6"><span class="label label-danger">Не пройдено</span></td>
+                }
+            </tr>
+            <tr>
+                @if (Model.Surveys.Any(m => m.Type == "MaleFamilyDrawing"))
+                {
+                    <td valign="middle" class="col-md-6"><h4>Рисунок семьи</h4></td>
+                    <td valign="middle" class="col-md-3"><span class="label label-success">Пройдено</span></td>
+                }
+                else
+                {
+                    <td valign="middle" class="col-md-6"><a asp-action="FamilyDrawing" asp-controller="User" asp-route-gender="Male"><h4>Рисунок семьи</h4></a></td>
+                    <td valign="middle" class="col-md-6"><span class="label label-danger">Не пройдено</span></td>
+                }
+            </tr>
+            <tr>
+                @if (Model.Surveys.Any(m => m.Type == "MaleCondonSurvey"))
+                {
+                    <td valign="middle" class="col-md-6"><h4>Методика диагностики пренатальной привязанности</h4></td>
+                    <td valign="middle" class="col-md-6">
+                        <span class="label label-success">Пройдено</span>
+                        <a asp-action="Result" asp-controller="User" asp-route-type="CondonSurvey" asp-route-gender="Male">
+                            <span class="label label-info">Результат</span>
+                        </a>
+                    </td>
+                }
+                else
+                {
+                    <td valign="middle" class="col-md-6"><a asp-action="Survey" asp-controller="User" asp-route-type="CondonSurvey" asp-route-gender="Male"><h4>Диагностика пренатальной привязанности</h4></a></td>
+                    <td valign="middle" class="col-md-6"><span class="label label-danger">Не пройдено</span></td>
+                }
+            </tr>
+            <tr>
+                @if (Model.Surveys.Any(m => m.Type == "MaleDinerSurvey"))
+                {
+                    <td valign="middle" class="col-md-6"><h4>@Globals.Surveys.Single(m => m.Type == "DinerSurvey").Name</h4></td>
+                    <td valign="middle" class="col-md-6">
+                        <span class="label label-success">Пройдено</span>
+                        <a asp-action="Result" asp-controller="User" asp-route-type="DinerSurvey" asp-route-gender="Male">
+                            <span class="label label-info">Результат</span>
+                        </a>
+                    </td>
+                }
+                else
+                {
+                    <td valign="middle" class="col-md-6"><a asp-action="Survey" asp-controller="User" asp-route-type="DinerSurvey" asp-route-gender="Male"><h4>@Globals.Surveys.Single(m => m.Type == "DinerSurvey").Name</h4></a></td>
+                    <td valign="middle" class="col-md-6"><span class="label label-danger">Не пройдено</span></td>
+                }
+            </tr>
+            <tr>
+                @if (Model.Surveys.Any(m => m.Type == "MaleAlyoshinaSurvey"))
+                {
+                    <td valign="middle" class="col-md-6"><h4>@Globals.Surveys.Single(m => m.Type == "AlyoshinaSurvey").Name</h4></td>
+                    <td valign="middle" class="col-md-6">
+                        <span class="label label-success">Пройдено</span>
+                        <a asp-action="Result" asp-controller="User" asp-route-type="AlyoshinaSurvey" asp-route-gender="Male">
+                            <span class="label label-info">Результат</span>
+                        </a>
+                    </td>
+                }
+                else
+                {
+                    <td valign="middle" class="col-md-6"><a asp-action="Survey" asp-controller="User" asp-route-type="AlyoshinaSurvey" asp-route-gender="Male"><h4>@Globals.Surveys.Single(m => m.Type == "AlyoshinaSurvey").Name</h4></a></td>
+                    <td valign="middle" class="col-md-6"><span class="label label-danger">Не пройдено</span></td>
+                }
+            </tr>
+            <tr>
+                @if (Model.Surveys.Any(m => m.Type == "MaleRiffSurvey"))
+                {
+                    <td valign="middle" class="col-md-6"><h4>@Globals.Surveys.Single(m => m.Type == "RiffSurvey").Name</h4></td>
+                    <td valign="middle" class="col-md-6">
+                        <span class="label label-success">Пройдено</span>
+                        <a asp-action="Result" asp-controller="User" asp-route-type="RiffSurvey" asp-route-gender="Male">
+                            <span class="label label-info">Результат</span>
+                        </a>
+                    </td>
+                }
+                else
+                {
+                    <td valign="middle" class="col-md-6"><a asp-action="Survey" asp-controller="User" asp-route-type="RiffSurvey" asp-route-gender="Male"><h4>@Globals.Surveys.Single(m => m.Type == "RiffSurvey").Name</h4></a></td>
+                    <td valign="middle" class="col-md-6"><span class="label label-danger">Не пройдено</span></td>
+                }
+            </tr>
+        </table>
+    </div>
+</div>

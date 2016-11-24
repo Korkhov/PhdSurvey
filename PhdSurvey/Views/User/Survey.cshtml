@@ -1,0 +1,36 @@
+﻿@model SurveyViewModel
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<h2>@Model.Name</h2>
+
+<h4>@Model.Description</h4>
+<hr />
+<input type="hidden" value="@Model.Questions.Count" id="qstCount" />
+<input type="hidden" value="@Model.Type" id="type" />
+<input type="hidden" value="@ViewData["Gender"]" id="gender" />
+
+@for (int i = 0; i < Model.Questions.Count; i++)
+{
+    <div class="qst-group hidden" name="@i">
+        <div class="form-group">
+            <h3>@Model.Questions[i].Description</h3>
+        </div>
+        @for (int j = 0; j < Model.Questions[i].Answers.Count; j++)
+        {
+            <div class="form-group">
+                <button class="ans-btn btn btn-default" name="@j">@((j + 1) + "." + Model.Questions[i].Answers[j])</button>
+            </div>
+        }
+    </div>
+}
+
+<br /><div class="form-group">
+    <input type="button" class="btn btn-info hidden" id="prevQstBtn" value="Предыдущий вопрос" />
+</div>
+
+<div class="form-group">
+    <div id="loader" class="hidden"></div>
+</div>

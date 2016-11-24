@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Рисунок семьи";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Для проведения теста вам потребуются:</h4>
+<ul>
+    <li>Лист бумаги А4</li>
+    <li>Простой карандаш</li>
+    <li>Ластик</li>
+</ul>
+
+Нарисуйте, пожалуйста, свою семью, так, как вы её видите, используя только простой карандаш. Затем сфотогорафируйте рисунок и прикрепите к форме ниже.
+
+<hr />
+
+<form asp-action="FamilyDrawing" asp-controller="User" asp-route-gender="@ViewData["Gender"]" method="post" enctype="multipart/form-data">
+    <div class="col-md-12">
+        <input type="file" accept="image/*" name="file" style="padding:10px" id="file" />
+        <span class="text-danger" style="padding:10px">@ViewData["RequiredField"]</span>
+    </div><br /><br /><br />
+    <input type="submit" class="btn btn-success" value="Отправить" />
+</form>

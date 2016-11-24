@@ -1,0 +1,238 @@
+﻿@model MaleMainSurvey
+@{
+    ViewData["Title"] = "Анкета";
+}
+<h2>@ViewData["Title"]</h2>
+
+<form asp-controller="User" asp-action="MaleMainSurvey" method="post" class="form-horizontal">
+    <h4>Заполните следующие поля.</h4>
+    <hr />
+    <div class="form-group">
+        <label asp-for="Name" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Age" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <input asp-for="Age" class="form-control" />
+            <span asp-validation-for="Age" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="MaritalStatus" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <select asp-for="MaritalStatus" class="form-control">
+                <option disabled selected>@Globals.ChooseTemplate</option>
+                <option value="Женат">Женат</option>
+                <option value="В гражданском браке">В гражданском браке</option>
+                <option value="В разводе">В разводе</option>
+                <option value="Не женат">Не женат</option>
+            </select>
+            <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group hidden">
+        <label asp-for="MarriagesCount" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <input asp-for="MarriagesCount" class="form-control" />
+            <span asp-validation-for="MarriagesCount" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group hidden">
+        <label asp-for="MarriageAge" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <input asp-for="MarriageAge" class="form-control" />
+            <span asp-validation-for="MarriageAge" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="ParentsFamilyStatus" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <select asp-for="ParentsFamilyStatus" class="form-control">
+                <option disabled selected>@Globals.ChooseTemplate</option>
+                <option value="Полная">Полная</option>
+                <option value="Неполная">Неполная</option>
+                <option value="Был развод родителей">Был развод родителей</option>
+                <option value="Другое">Другое</option>
+            </select>
+            <label asp-for="ParentsDivorceAge" class="control-label hidden"></label>
+            <input asp-for="ParentsDivorceAge" class="form-control hidden" />
+            <label asp-for="ParentsFamilyStatusOther" class="control-label hidden"></label>
+            <input asp-for="ParentsFamilyStatusOther" class="form-control hidden" />
+            <span asp-validation-for="ParentsFamilyStatus" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Education" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <select asp-for="Education" class="form-control">
+                <option disabled selected>@Globals.ChooseTemplate</option>
+                <option value="Неполное среднее">Неполное среднее</option>
+                <option value="Среднее">Среднее</option>
+                <option value="Среднее специальное">Среднее специальное</option>
+                <option value="Неполное высшее">Неполное высшее</option>
+                <option value="Высшее">Высшее</option>
+                <option value="Учёная степень">Учёная степень</option>
+            </select>
+            <span asp-validation-for="Education" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Job" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <select asp-for="Job" class="form-control">
+                <option disabled selected>@Globals.ChooseTemplate</option>
+                <option value="Полная">Полная</option>
+                <option value="Неполная">Неполная</option>
+                <option value="Свободный график">Свободный график</option>
+                <option value="В настоящий момент не работаю">В настоящий момент не работаю</option>
+            </select>
+            <span asp-validation-for="Job" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="ChildrenAmount" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <textarea asp-for="ChildrenAmount" class="form-control" style="height:100px;resize:none;"></textarea>
+            <span asp-validation-for="ChildrenAmount" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="PregnancyWasPlanned" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <select asp-for="PregnancyWasPlanned" class="form-control">
+                <option selected disabled>@Globals.ChooseTemplate</option>
+                <option value="Да">Да</option>
+                <option value="Нет">Нет</option>
+                <option value="Другое">Другое</option>
+            </select>
+            <label asp-for="PregnancyWasPlannedOther" class="control-label hidden"></label>
+            <input asp-for="PregnancyWasPlannedOther" class="form-control hidden" />
+            <span asp-validation-for="PregnancyWasPlanned" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group hidden">
+        <label asp-for="PregnancyMotivation" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <textarea asp-for="PregnancyMotivation" class="form-control" style="height:100px;resize:none;"></textarea>
+            <span asp-validation-for="PregnancyMotivation" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group hidden">
+        <label asp-for="PregnancyInterruptionWasDiscussed" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <textarea asp-for="PregnancyInterruptionWasDiscussed" class="form-control" style="height:100px;resize:none;"></textarea>
+            <span asp-validation-for="PregnancyInterruptionWasDiscussed" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="PregnancyFirstThoughts" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <textarea asp-for="PregnancyFirstThoughts" class="form-control" style="height:100px;resize:none;"></textarea>
+            <span asp-validation-for="PregnancyFirstThoughts" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImaginedChildAppearence" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <select asp-for="ImaginedChildAppearence" class="form-control">
+                <option selected disabled>@Globals.ChooseTemplate</option>
+                <option value="Да">Да</option>
+                <option value="Нет">Нет</option>
+            </select>
+            <span asp-validation-for="ImaginedChildAppearence" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImagineChildName" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <select asp-for="ImagineChildName" class="form-control">
+                <option selected disabled>Выберете один из пунктов:</option>
+                <option value="Да">Да</option>
+                <option value="Нет">Нет</option>
+            </select>
+            <span asp-validation-for="ImagineChildName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="TalkToChild" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <select asp-for="TalkToChild" class="form-control">
+                <option selected disabled>@Globals.ChooseTemplate</option>
+                <option value="Часто">Часто</option>
+                <option value="Редко">Редко</option>
+                <option value="Нет">Нет</option>
+            </select>
+            <span asp-validation-for="TalkToChild" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="ChildFirstMovementReaction" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <textarea asp-for="ChildFirstMovementReaction" class="form-control" style="height:100px;resize:none;"></textarea>
+            <span asp-validation-for="ChildFirstMovementReaction" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImaginedChildCharacter" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <select asp-for="ImaginedChildCharacter" class="form-control">
+                <option selected disabled>@Globals.ChooseTemplate</option>
+                <option value="Да">Да</option>
+                <option value="Нет">Нет</option>
+            </select>
+            <span asp-validation-for="ImaginedChildCharacter" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="ChildCharacter" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <textarea asp-for="ChildCharacter" class="form-control" style="height:100px; resize:none;"></textarea>
+            <span asp-validation-for="ChildCharacter" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="HusbandVisitedPreparationCoureses" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <select asp-for="HusbandVisitedPreparationCoureses" class="form-control">
+                <option selected disabled>@Globals.ChooseTemplate</option>
+                <option value="Да">Да</option>
+                <option value="Нет">Нет</option>
+            </select>
+            <span asp-validation-for="HusbandVisitedPreparationCoureses" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="DifficultiesExpected" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <textarea asp-for="DifficultiesExpected" class="form-control" style="height:100px; resize:none;"></textarea>
+            <span asp-validation-for="DifficultiesExpected" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="FatherhoodReadiness" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <input asp-for="FatherhoodReadiness" class="form-control" />
+            <span asp-validation-for="FatherhoodReadiness" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="RelationWithWifeQuality" class="col-md-4 control-label"></label>
+        <div class="col-md-8">
+            <input asp-for="RelationWithWifeQuality" class="form-control" />
+            <span asp-validation-for="RelationWithWifeQuality" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-8">
+            <button type="submit" class="btn btn-success">Отправить</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
